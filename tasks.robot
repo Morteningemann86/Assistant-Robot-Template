@@ -15,14 +15,13 @@ Main
     ...    The Main task running the Assistant.
     ...    Inserts inputs from the dialog box into notepad.exe.
     ...    If Notepad is not open, it will first launch notepad.exe.
-    ...    The bot will run until the button 'Stop' is pushed.
     Prepare Assistant Run
 
     ${run}=    Set Variable    ${True}
     WHILE    ${run}
         Display Main Menu
         ${result}=    Run Dialog
-        ...    timeout=400
+        ...    timeout=1000
         ...    title=Assistant Template
         ...    on_top=False
         ...    height=450
@@ -42,13 +41,10 @@ Prepare Assistant Run
     IF    ${res} == ${False}    Launch App    Notepad.exe
 
 Display Main Menu
-    [Documentation]
-    ...    Main UI of the bot. We use this to get our user input.
-
+    [Documentation]    Main UI of the bot. We use this to get our user input.
     Clear Dialog
     Add Heading    Assistant Tutorial
     Add Text Input    text_input    Insert Case Order
-    # Add Submit Buttons    Submit
     Add Submit Buttons    Submit, Stop
 
 Launch App
@@ -64,4 +60,4 @@ Look Up Case Number Chrome
     [Arguments]    ${result}
     ${res}=    Is Element Visible    xpath://*[@ng-reflect-name="labelCompanyName"]
     IF    ${res} == ${False}    Go To    https://www.rpachallenge.com/
-    Input Text When Element Is Visible    xpath://*[@ng-reflect-name="labelCompanyName"]    ${result.text_input}
+    Input Text When Element Is Visible    xpath://*[@ng-reflect-name="labelCompanyName"]    text=${result.text_input}
