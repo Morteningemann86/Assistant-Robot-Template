@@ -52,8 +52,7 @@ Launch App
 
 Look Up Case Number Notepad
     [Arguments]    ${result}
-    Send Keys    executable:Notepad.exe    keys={CTRL}{a}{BACK}    wait_time=0.1
-    Send Keys    executable:Notepad.exe    keys=${result.text_input}    wait_time=0.1    send_enter=True
+    Send Keys    executable:Notepad.exe    keys={CTRL}{a}{BACK}${result.text_input}    wait_time=0.1
 
 Look Up Case Number Chrome
     [Arguments]    ${result}
