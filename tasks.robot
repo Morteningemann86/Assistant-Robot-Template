@@ -1,5 +1,6 @@
 *** Settings ***
-Documentation       An Assistant Robot.
+Documentation       Inserts inputs from the dialog box into notepad.exe.
+...                 If Notepad is not open, it will first launch notepad.exe.
 
 Library             OperatingSystem
 Library             RPA.Assistant
@@ -11,10 +12,8 @@ Library             RPA.Browser.Selenium    auto_close=${False}
 
 *** Tasks ***
 Main
-    [Documentation]
-    ...    The Main task running the Assistant.
-    ...    Inserts inputs from the dialog box into notepad.exe.
-    ...    If Notepad is not open, it will first launch notepad.exe.
+    [Documentation]    The Main task running the Assistant.
+
     Prepare Assistant Run
 
     ${run}=    Set Variable    ${True}
