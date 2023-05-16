@@ -18,7 +18,7 @@ Main
     Prepare Assistant Run
 
     ${run}=    Set Variable    ${True}
-    WHILE    ${run}
+    WHILE    ${run} == ${True}
         Display Main Menu
         ${result}=    Run Dialog
         ...    timeout=1000
