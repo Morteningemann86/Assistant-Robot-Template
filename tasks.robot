@@ -31,7 +31,7 @@ Main
         Look Up Case Number Notepad    ${result}
         Look Up Case Number Chrome    ${result}
     END
-    Log    message
+    Log    Robot was stopped by user
 
 
 *** Keywords ***
